@@ -1,0 +1,17 @@
+@media screen and (max-width:767px){
+    .brand {
+        margin: auto !important;
+    }
+}
+.navbar{
+    background-color: rgb(255, 181, 70) !important;
+}
+.link{
+    font-weight: bolder;
+}
+.offcanvas{
+    background-color: rgb(255, 181, 70) !important;
+}
+.cart{
+    font-size: 30px;
+}
