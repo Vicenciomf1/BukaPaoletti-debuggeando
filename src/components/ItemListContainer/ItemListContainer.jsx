@@ -1,9 +1,12 @@
-import React from 'react'
+import React from 'react';
+import './ItemListContainer.css';
+import Card from '../Card/Card';
 
-function ItemListContainer({greeting}) {
+function ItemListContainer() {
   return (
-        <div>
-            <h1>{greeting}</h1>
+        <div className="itemList">
+        <Card title="Montando el mono" price="200" initial={1} stock={10}/>
+        <Card title="islas flotantes" price="500" initial={1} stock={20}/>
         </div>
   )
 }

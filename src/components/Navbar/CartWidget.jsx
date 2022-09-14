@@ -1,12 +1,28 @@
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faCartPlus }  from "@fortawesome/free-solid-svg-icons";
+import * as React from 'react';
+import Badge from '@mui/material/Badge';
+import { styled } from '@mui/material/styles';
+import IconButton from '@mui/material/IconButton';
+import ShoppingCartIcon from '@mui/icons-material/ShoppingCart';
+import "./CartWidget.css"
 
-import React from 'react'
+const StyledBadge = styled(Badge)(({ theme }) => ({
+  '& .MuiBadge-badge': {
+    right: -3,
+    top: 5,
+    border: `2px solid ${theme.palette.paper}`,
+    padding: '0 4px',
+    background:'rgb(255, 181, 70)',
+  },
+}))
 
-function CartWidget() {
+function CartWidget({content}) {
   return (
-    <FontAwesomeIcon icon={faCartPlus} />
-  )
+    <IconButton aria-label="cart" >
+      <StyledBadge badgeContent={content} showZero>
+        <ShoppingCartIcon fontSize="large" className="cart"/>
+      </StyledBadge>
+    </IconButton>
+  );
 }
 
 export default CartWidget
