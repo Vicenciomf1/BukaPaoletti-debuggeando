@@ -6,7 +6,6 @@ import Navbar from 'react-bootstrap/Navbar';
 import Offcanvas from 'react-bootstrap/Offcanvas';
 import CartWidget from './CartWidget';
 
-
 function NavBar() {
     return (
         <>
@@ -14,7 +13,7 @@ function NavBar() {
                 <Container fluid>
                     <Navbar.Brand className="logo" href="#action1">
                         <img
-                            src="./img/logobar.png"
+                            src="../../../Assets/Logo/logobar.png"
                             width="50"
                             height="50"
                             className="rounded-circle"
@@ -28,7 +27,7 @@ function NavBar() {
                         <Offcanvas.Header closeButton>
                             <Navbar.Brand href="#action1">
                                 <img
-                                    src="./img/logobar.png"
+                                    src="../../../Assets/Logo/logobar.png"
                                     width="50"
                                     height="50"
                                     className="rounded-circle"
