@@ -41,7 +41,7 @@ function NavBar() {
                             <Nav className="justify-content-center flex-grow-1 pe-3">
                                 <Navbar.Brand className="p-1 list" href="#action1">Home</Navbar.Brand>
                                 <Navbar.Brand className="p-1 list" href="#action2">Nosotros</Navbar.Brand>
-                                <Navbar.Brand className="p-1 list" href="#action3">Shop</Navbar.Brand>
+                                <Navbar.Brand className="p-1 list" href="#action3">Tienda</Navbar.Brand>
                                 <Navbar.Brand className="p-1 list" href="#action4">Contacto</Navbar.Brand>
                             </Nav>
                         </Offcanvas.Body>

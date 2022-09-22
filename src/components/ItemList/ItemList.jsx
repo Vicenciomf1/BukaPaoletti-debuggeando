@@ -10,7 +10,7 @@ function ItemList({data}) {
           price={item.price}
           img={item.img}
           stock={item.stock}
-          initial={1} />
+          initial={0} />
       })}
       </>
   )

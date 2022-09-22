@@ -1,0 +1,17 @@
+.card{
+    margin: 3rem 0 1rem;
+    border: 2px solid rgb(33, 40, 46);
+}
+
+.card img{
+    max-height: 15rem;
+}
+
+.card-body{
+    text-align: center;
+}
+
+.card:hover{
+    transition: all 0.1s linear;
+    border: 3px solid rgb(255, 181, 70);
+}

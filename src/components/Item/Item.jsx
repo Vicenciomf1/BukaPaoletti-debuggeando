@@ -1,11 +1,12 @@
 import Card from 'react-bootstrap/Card';
 import ItemCount from '../ItemCount/ItemCount';
 import Col from 'react-bootstrap/Col';
+import './Item.css'
 
 function Item({ img, price, title, subtitle, initial, stock }) {
   return (
     <Col>
-      <Card style={{ width: '18rem' }}>
+      <Card style={{ width: '15rem' }}>
         <Card.Img variant="top" src={img} />
         <Card.Body>
           <Card.Title>{title}</Card.Title>

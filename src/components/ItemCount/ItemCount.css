@@ -1,0 +1,8 @@
+button{
+    max-height: 2.3rem;
+}
+
+.button-count{
+    background-color: rgb(33, 40, 46) !important;
+    color: rgb(255, 181, 70) !important;
+}

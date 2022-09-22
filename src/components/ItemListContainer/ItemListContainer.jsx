@@ -1,5 +1,4 @@
 import React, { useEffect, useState } from 'react';
-import './ItemListContainer.css';
 import getBeer from '../../services/mockAPI';
 import ItemList from '../ItemList/ItemList';
 import Row from 'react-bootstrap/Row';
@@ -16,7 +15,7 @@ function ItemListContainer() {
 
   return (
     <Container fluid>
-      <Row sm={1} md={2} lg={3} xl={4} className="g-4">
+      <Row xl="auto" className="justify-content-center">
         <ItemList data={data} />
       </Row>
     </Container>
