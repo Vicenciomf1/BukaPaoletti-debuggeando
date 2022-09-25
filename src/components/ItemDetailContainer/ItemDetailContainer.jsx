@@ -1,24 +1,19 @@
-import React, {useEffect, useState} from 'react'
+import React, { useEffect, useState } from 'react'
 import { BeerDetail } from '../../services/mockAPI'
-import Row from 'react-bootstrap/Row';
-import Container from 'react-bootstrap/Container';
 import ItemDetail from '../ItemDetail/ItemDetail';
+import { useParams } from 'react-router-dom';
 
 function ItemDetailContainer() {
   let [data, setData] = useState({});
 
-  useEffect(()=>{
-    BeerDetail().then(response =>{
-      setData(response);
-    });
-  }, [])
+  const { id } = useParams();
+
+  useEffect(() => {
+    BeerDetail(id).then(response => setData(response));
+  }, [id])
 
   return (
-    <Container fluid>
-      <Row>
         <ItemDetail data={data} />
-      </Row>
-    </Container>
   )
 }
 

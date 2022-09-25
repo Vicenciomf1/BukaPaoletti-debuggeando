@@ -7,6 +7,7 @@ const data = [
         price: 800,
         img: "/Assets/CardImg/añosExtraños.jpg",
         stock: 20,
+        category:"ipa",
     }, {
         id: 2,
         title: "Alma gorda",
@@ -15,6 +16,7 @@ const data = [
         price: 450,
         img: "/Assets/CardImg/AlmaGorda.jpg",
         stock: 15,
+        category:"amber",
     }, {
         id: 3,
         title: "Almas muertas",
@@ -23,6 +25,7 @@ const data = [
         price: 650,
         img: "/Assets/CardImg/AlmasMuertas.jpg",
         stock: 20,
+        category:"imperial",
     }, {
         id: 4,
         title: "Amor amarillo",
@@ -31,6 +34,7 @@ const data = [
         price: 600,
         img: "/Assets/CardImg/amorAmarillo.jpg",
         stock: 15,
+        category:"ipa",
     }, {
         id: 5,
         title: "Capitán Nelson",
@@ -39,6 +43,7 @@ const data = [
         price: 760,
         img: "/Assets/CardImg/capitanNelson.jpg",
         stock: 20,
+        category:"ipa",
     }, {
         id: 6,
         title: "Casi maduro",
@@ -47,6 +52,7 @@ const data = [
         price: 700,
         img: "/Assets/CardImg/casiMaduro.jpg",
         stock: 15,
+        category:"sour",
     }, {
         id: 7,
         title: "Catacumbia",
@@ -55,6 +61,7 @@ const data = [
         price: 790,
         img: "/Assets/CardImg/Catacumbia.jpg",
         stock: 20,
+        category:"imperial",
     }, {
         id: 8,
         title: "Cortado, por favor",
@@ -63,6 +70,7 @@ const data = [
         price: 590,
         img: "/Assets/CardImg/cortadoPorFavor.jpg",
         stock: 15,
+        category:"imperial",
     }, {
         id: 9,
         title: "Fiestas de focas",
@@ -71,6 +79,7 @@ const data = [
         price: 450,
         img: "/Assets/CardImg/fiestaDeFocas.jpg",
         stock: 20,
+        category:"amber",
     }, {
         id: 10,
         title: "Fruta 40",
@@ -79,6 +88,7 @@ const data = [
         price: 600,
         img: "/Assets/CardImg/fruta.jpg",
         stock: 15,
+        category:"ipa",
     }
 ];
 
@@ -86,15 +96,28 @@ export default function getBeer() {
     return new Promise((resolve) => {
         setTimeout(() => {
             resolve(data)
-        }, 2000)
-    })
-}
-
-export function BeerDetail() {
-    return new Promise((resolve) => {
-        setTimeout(() => {
-            resolve(data[4])
         }, 1000)
     })
 }
 
+export function BeerDetail(id) {
+    return new Promise((resolve) => {
+        let itemFind = data.find((item) =>{
+            return item.id === parseInt(id);
+        });
+        setTimeout(() => {
+            if (itemFind) resolve(itemFind);
+        }, 500);
+    })
+}
+
+export function BeerCategory(cat){
+    return new Promise((resolve)=>{
+        let itemFind = data.filter((item)=>{
+            return item.category === cat;
+        });
+        setTimeout(() => {
+            if (itemFind) resolve(itemFind);
+        }, 500);
+    })
+}

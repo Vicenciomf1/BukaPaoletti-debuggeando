@@ -1,0 +1,9 @@
+.btnCategory{
+    margin: 10px;
+    border: 0.1px solid rgb(255, 181, 70);
+}
+
+.btnCategory:hover{
+    transition: all 1s solid;
+    background-color: rgb(255, 181, 70) !important;
+}
