@@ -5,4 +5,14 @@ button{
 .button-count{
     background-color: rgb(33, 40, 46) !important;
     color: rgb(255, 181, 70) !important;
+    margin: 5px !important;
+}
+
+.spanCount{
+    width: 50px;
+    text-align: center;
+    padding: 5px;
+    background-color: rgb(33, 40, 46);
+    color: rgb(255, 181, 70);
+    border-radius: 5px;
 }

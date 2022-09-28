@@ -9,6 +9,10 @@
 
 .card-body{
     text-align: center;
+    color: rgb(33, 40, 46);
+}
+.link{
+    text-decoration:none !important;
 }
 
 .card:hover{
