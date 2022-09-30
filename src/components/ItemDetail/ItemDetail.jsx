@@ -1,15 +1,18 @@
 import Button from '@mui/material/Button';
-import React, { useState } from 'react'
+import React, { useContext, useState } from 'react'
 import { Col, Image, Container, Row } from 'react-bootstrap'
 import { NavLink } from 'react-router-dom'
+import { cartContext } from '../../context/CartContext';
 import ItemCount from '../ItemCount/ItemCount'
 import './ItemDetail.css'
 
 function ItemDetail({ data }) {
   const [finalizarCompra, setFinalizarCompra] = useState(true)
+  
+  const { addItem } = useContext(cartContext)
 
   function handleAddToCart(count) {
-    alert(`Agregaste ${count} al carrito`)
+    addItem(data, count)
     setFinalizarCompra(false);
   }
 
