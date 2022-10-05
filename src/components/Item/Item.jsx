@@ -1,15 +1,15 @@
 import Card from 'react-bootstrap/Card';
 import Col from 'react-bootstrap/Col';
 import './Item.css'
-import { NavLink } from 'react-router-dom';
+import { Link } from 'react-router-dom';
 
-function Item({ img, price, title, subtitle, initial, stock, id }) {
+function Item({ img, price, title, subtitle, id }) {
 
   const urlDetail = `/ItemDetail/${id}`;
 
   return (
     <Col>
-      <NavLink to={urlDetail} className="link">
+      <Link to={urlDetail} className="link">
         <Card style={{ width: '15rem' }}>
           <Card.Img variant="top" src={img} />
           <Card.Body>
@@ -18,7 +18,7 @@ function Item({ img, price, title, subtitle, initial, stock, id }) {
             <Card.Text>${price}</Card.Text>
           </Card.Body>
         </Card>
-      </NavLink>
+      </Link>
     </Col>
   );
 }

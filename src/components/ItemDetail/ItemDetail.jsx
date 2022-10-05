@@ -1,14 +1,14 @@
 import Button from '@mui/material/Button';
 import React, { useContext, useState } from 'react'
 import { Col, Image, Container, Row } from 'react-bootstrap'
-import { NavLink } from 'react-router-dom'
+import { Link } from 'react-router-dom'
 import { cartContext } from '../../context/CartContext';
 import ItemCount from '../ItemCount/ItemCount'
 import './ItemDetail.css'
 
 function ItemDetail({ data }) {
   const [finalizarCompra, setFinalizarCompra] = useState(true)
-  
+
   const { addItem } = useContext(cartContext)
 
   function handleAddToCart(count) {
@@ -24,10 +24,12 @@ function ItemDetail({ data }) {
         </Col>
         <Col md={7}>
           <h1>{data.title}</h1>
-          <h4>{data.subtitle}</h4>
+          <h4>{data.subtitle} | Alc. {data.alc}</h4>
           <p>{data.detail}</p>
           <p className="price">${data.price}</p>
-          {finalizarCompra === true ? (<ItemCount initial={0} stock={data.stock} onAddToCart={handleAddToCart}></ItemCount>) : (<NavLink className="link" to="/cart"><Button className="button-count">Finalizar compra</Button></NavLink>)}
+          {finalizarCompra ? (<ItemCount initial={0} stock={data.stock} onAddToCart={handleAddToCart}></ItemCount>)
+            : (<><Link className="link" to="/cartView"><Button className="button-count">Finalizar compra</Button></Link>
+              <Link className="link" to="/"><Button className="button-count">Seguir comprando</Button></Link></>)}
         </Col>
       </Row>
     </Container>

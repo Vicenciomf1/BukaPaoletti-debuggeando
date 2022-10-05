@@ -5,31 +5,41 @@ import Row from 'react-bootstrap/Row';
 import Container from 'react-bootstrap/Container';
 import { useParams } from 'react-router-dom';
 import ButtonCategory from '../ButtonCategory/ButtonCategory';
+import { LinearProgress } from '@mui/material';
 
 function ItemListContainer() {
-  let [data, setData] = useState([]);
-
+  const [data, setData] = useState([]);
+  const [loading, setLoading] = useState(true);
   const { cat } = useParams();
 
 
   useEffect(() => {
-    if (cat === undefined){
-      getBeer().then(response => setData(response));
-    }else{
+    setLoading(true)
+    if (cat === undefined) {
+      getBeer().then(response => setData(response))
+        .finally(() => setLoading(false));
+    } else {
       BeerCategory(cat).then(response => setData(response))
+        .finally(() => setLoading(false));
     }
   }, [cat])
 
   return (
-    <Container fluid>
-    <Row xl="auto" className="justify-content-center">
-    <ButtonCategory />
-    </Row>
-      <Row xl="auto" className="justify-content-center">
-        <ItemList data={data} />
-      </Row>
-    </Container>
-  )
+    <>
+      {loading ? (<Container fluid>
+        <LinearProgress />
+      </Container>) :
+        (<Container fluid>
+          <Row xl="auto" className="justify-content-center">
+            <ButtonCategory />
+          </Row>
+          <Row xl="auto" className="justify-content-center">
+            <ItemList data={data} />
+          </Row>
+        </Container>
+        )
+      }
+    </>)
 }
 
 

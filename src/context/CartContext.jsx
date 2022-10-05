@@ -19,7 +19,11 @@ export default function ContextProvider({ children }) {
         return cart.reduce((acc, item) => acc += item.price * item.count);
     }
 
-    function deleteItem() {
+    function deleteItem(id) {
+        return setCart(cart.filter(item => item.id !== id))
+    }
+
+    function cartClean (){
         return setCart([])
     }
 
@@ -40,7 +44,7 @@ export default function ContextProvider({ children }) {
     }
 
     return (
-        <Provider value={{ cart, addItem, isInCart, getItemCount, getItemPrice, deleteItem }}>{children}</Provider>
+        <Provider value={{ cart, addItem, isInCart, getItemCount, getItemPrice, deleteItem, cartClean }}>{children}</Provider>
     )
 }
 
