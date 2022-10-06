@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react'
-import { BeerDetail } from '../../services/mockAPI'
+import { BeerDetail } from '../../services/firestore'
 import ItemDetail from '../ItemDetail/ItemDetail';
 import { useParams } from 'react-router-dom';
 import { LinearProgress } from '@mui/material';

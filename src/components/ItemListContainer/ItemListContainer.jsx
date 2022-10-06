@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react';
-import getBeer, { BeerCategory } from '../../services/mockAPI';
+import { getBeer, BeerCategory } from '../../services/firestore';
 import ItemList from '../ItemList/ItemList';
 import Row from 'react-bootstrap/Row';
 import Container from 'react-bootstrap/Container';
@@ -18,10 +18,10 @@ function ItemListContainer() {
     if (cat === undefined) {
       getBeer().then(response => setData(response))
         .finally(() => setLoading(false));
-    } else {
+    }  else {
       BeerCategory(cat).then(response => setData(response))
         .finally(() => setLoading(false));
-    }
+    } 
   }, [cat])
 
   return (
