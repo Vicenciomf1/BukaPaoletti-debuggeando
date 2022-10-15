@@ -5,18 +5,61 @@ import { cartContext } from '../../context/CartContext';
 import { Link } from 'react-router-dom';
 import "./CartView.css"
 import { Col, Container, Row } from 'react-bootstrap';
+import Swal from 'sweetalert2';
 
 
 function CartView() {
   const { cart, deleteItem, cartClean, totalPriceItem } = useContext(cartContext);
 
   function itemDelete(id) {
-    deleteItem(id);
+    Swal.fire({
+      title: "Eliminar producto",
+      text: "¿Estas seguro que queres eliminar esta birra?",
+      icon: "warning",
+      showCancelButton: true,
+      confirmButtonText: "Eliminar",
+      buttonsStyling: false,
+      customClass: {
+        confirmButton: 'button-count',
+        cancelButton: 'button-count'
+      }
+    }).then((result) => {
+      if (result.isConfirmed) {
+        deleteItem(id);
+        Swal.fire({
+          title: "Birra eliminada",
+          icon: "success",
+          showConfirmButton: false,
+          timer: 1000
+        })
+      }
+    })
   };
 
   function cleanCart() {
-    cartClean()
-  }
+    Swal.fire({
+      title: "Vaciar carro",
+      text: "¿Estas seguro que queres vaciar el carrito?",
+      icon: "warning",
+      showCancelButton: true,
+      confirmButtonText: "Vaciar",
+      buttonsStyling: false,
+      customClass: {
+        confirmButton: 'button-count',
+        cancelButton: 'button-count'
+      }
+    }).then((result) => {
+      if (result.isConfirmed) {
+        cartClean();
+        Swal.fire({
+          title: "Carrito vacio",
+          icon: "success",
+          showConfirmButton: false,
+          timer: 1000
+        })
+      }
+    })
+  };
 
   if (cart.length === 0) {
     return <>
@@ -55,17 +98,17 @@ function CartView() {
       <Container fluid>
         <Row className="justify-content-md-end">
           <Col xs="6">
-          <h1>Totales</h1>
+            <h1>Totales</h1>
           </Col>
         </Row>
         <Row className="justify-content-md-end">
           <Col xs="6">
-          <h5>Total a pagar: ${totalPriceItem()}</h5>
+            <h5>Total a pagar: ${totalPriceItem()}</h5>
           </Col>
         </Row>
         <Row className="justify-content-md-end">
           <Col xs="6">
-          <Link className="link" to="/FormBuy"><Button className="button-count">Continuar con la compra</Button></Link>
+            <Link className="link" to="/FormBuy"><Button className="button-count">Continuar con la compra</Button></Link>
           </Col>
         </Row>
       </Container>

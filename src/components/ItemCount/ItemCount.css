@@ -6,6 +6,7 @@ button{
     background-color: rgb(33, 40, 46) !important;
     color: rgb(255, 181, 70) !important;
     margin: 5px !important;
+    border-radius: 4px;
 }
 
 .spanCount{

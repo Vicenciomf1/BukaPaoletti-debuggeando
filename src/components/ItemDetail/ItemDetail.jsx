@@ -2,18 +2,30 @@ import Button from '@mui/material/Button';
 import React, { useContext, useState } from 'react'
 import { Col, Image, Container, Row } from 'react-bootstrap'
 import { Link } from 'react-router-dom'
+import Swal from 'sweetalert2';
 import { cartContext } from '../../context/CartContext';
 import ItemCount from '../ItemCount/ItemCount'
 import './ItemDetail.css'
 
 function ItemDetail({ data }) {
-  const [finalizarCompra, setFinalizarCompra] = useState(true)
+  const [finalizarCompra, setFinalizarCompra] = useState(true);
 
-  const { addItem } = useContext(cartContext)
+  const { addItem } = useContext(cartContext);
+  const Toast = Swal.mixin({
+    toast: true,
+    position: 'top-end',
+    timer: 2000,
+    timerProgressBar: true,
+    showConfirmButton: false,
+  });
 
   function handleAddToCart(count) {
     addItem(data, count)
     setFinalizarCompra(false);
+    Toast.fire({
+      icon: 'success',
+      title: 'Birra agregada',
+    });
   }
 
   return (

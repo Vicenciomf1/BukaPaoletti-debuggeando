@@ -4,6 +4,7 @@ import { cartContext } from '../../context/CartContext';
 import { orderBuy } from "../../services/firestore";
 import { Button } from '@mui/material';
 import { Link, useNavigate } from 'react-router-dom';
+import Swal from 'sweetalert2';
 
 function FormBuy() {
 
@@ -14,7 +15,7 @@ function FormBuy() {
   });
 
   const { cart, totalPriceItem } = useContext(cartContext);
-  const navigate = useNavigate()
+  const navigate = useNavigate();
 
   function InputForm(event) {
     let input = event.target.name;
@@ -33,6 +34,12 @@ function FormBuy() {
       total: totalPriceItem(),
     };
     orderBuy(orderData).then(navigate(`/`));
+    Swal.fire({
+      title: "Felicitaciones por tu compra",
+      icon: "success",
+      showConfirmButton: false,
+      timer: 2500
+    })
   }
 
   if (cart.length === 0) {
