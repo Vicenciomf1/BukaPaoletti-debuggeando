@@ -43,8 +43,14 @@ export default function ContextProvider({ children }) {
         }
     }
 
+    function totalPriceItem (){
+        let total = 0
+        cart.forEach((item) => (total += item.count * item.price));
+        return total;
+    }
+
     return (
-        <Provider value={{ cart, addItem, isInCart, getItemCount, getItemPrice, deleteItem, cartClean }}>{children}</Provider>
+        <Provider value={{ cart, addItem, isInCart, getItemCount, getItemPrice, deleteItem, cartClean, totalPriceItem }}>{children}</Provider>
     )
 }
 

@@ -3,10 +3,12 @@ import { Box, Button, Card, CardContent, CardMedia, IconButton, Typography } fro
 import React, { useContext } from 'react';
 import { cartContext } from '../../context/CartContext';
 import { Link } from 'react-router-dom';
+import "./CartView.css"
+import { Col, Container, Row } from 'react-bootstrap';
 
 
 function CartView() {
-  const { cart, deleteItem, cartClean } = useContext(cartContext);
+  const { cart, deleteItem, cartClean, totalPriceItem } = useContext(cartContext);
 
   function itemDelete(id) {
     deleteItem(id);
@@ -24,9 +26,8 @@ function CartView() {
   }
   return (
     <>
-      <Button className="button-count" onClick={cleanCart}>Vaciar carrito</Button>
       {cart.map((item) => {
-        return <Card sx={{ display: "flex" }} key={item.id}>
+        return <Card className="cardView" sx={{ display: "flex" }} key={item.id}>
           <CardMedia component="img"
             sx={{ width: 150 }}
             image={item.img}
@@ -40,13 +41,34 @@ function CartView() {
               <Typography component="div" vartiant="subtitle2">Precio total: ${item.price * item.count}</Typography>
             </CardContent>
             <Box sx={{ display: "flex", flexDirection: "row", alignItems: 'end' }}>
-              <IconButton>
-                <DeleteOutlineIcon onClick={() => { itemDelete(item.id) }} fontSize="medium" />
+              <IconButton onClick={() => { itemDelete(item.id) }}>
+                <DeleteOutlineIcon fontSize="medium" />
               </IconButton>
             </Box>
           </Box>
         </Card>
       })}
+      <div className="divButton">
+        <Link className="link" to="/"><Button className="button-count">Agregar mas productos</Button></Link>
+        <Button className="button-count" onClick={cleanCart}>Vaciar carrito</Button>
+      </div>
+      <Container fluid>
+        <Row className="justify-content-md-end">
+          <Col xs="6">
+          <h1>Totales</h1>
+          </Col>
+        </Row>
+        <Row className="justify-content-md-end">
+          <Col xs="6">
+          <h5>Total a pagar: ${totalPriceItem()}</h5>
+          </Col>
+        </Row>
+        <Row className="justify-content-md-end">
+          <Col xs="6">
+          <Link className="link" to="/FormBuy"><Button className="button-count">Continuar con la compra</Button></Link>
+          </Col>
+        </Row>
+      </Container>
     </>
   )
 }
