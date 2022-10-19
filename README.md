@@ -15,4 +15,6 @@
 
 ### De que se trata
 Buka es un templo de la birra. 
-Encontraras cualquier estilo, tipo y sabor en nuestra casa, solo una cosa no varia y es la calidad
+Encontraras cualquier estilo, tipo y sabor en nuestra casa, solo una cosa no varia y es la calidad.
+
+### URL https://bukatemplo.netlify.app/
