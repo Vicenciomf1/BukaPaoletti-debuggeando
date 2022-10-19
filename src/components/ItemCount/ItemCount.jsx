@@ -1,8 +1,8 @@
 import React, { useState } from 'react';
 import Stack from '@mui/material/Stack';
 import Button from '@mui/material/Button';
-import './ItemCount.css';
 import { Col } from 'react-bootstrap';
+import './ItemCount.css';
 
 function ItemCount({ initial, stock, onAddToCart }) {
     const [count, setCount] = useState(initial);
@@ -14,7 +14,7 @@ function ItemCount({ initial, stock, onAddToCart }) {
     }
 
     function handleSubstract() {
-        if (count > 0) {
+        if (count > 1) {
             setCount(count - 1);
         }
     }

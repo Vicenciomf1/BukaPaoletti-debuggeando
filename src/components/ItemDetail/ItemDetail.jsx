@@ -39,7 +39,7 @@ function ItemDetail({ data }) {
           <h4>{data.subtitle} | Alc. {data.alc}</h4>
           <p>{data.detail}</p>
           <p className="price">${data.price}</p>
-          {finalizarCompra ? (<ItemCount initial={0} stock={data.stock} onAddToCart={handleAddToCart}></ItemCount>)
+          {finalizarCompra ? (<ItemCount initial={1} stock={data.stock} onAddToCart={handleAddToCart}></ItemCount>)
             : (<><Link className="link" to="/cartView"><Button className="button-count">Finalizar compra</Button></Link>
               <Link className="link" to="/"><Button className="button-count">Seguir comprando</Button></Link></>)}
         </Col>

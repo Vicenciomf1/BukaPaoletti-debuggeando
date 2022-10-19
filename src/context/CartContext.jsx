@@ -23,7 +23,7 @@ export default function ContextProvider({ children }) {
         return setCart(cart.filter(item => item.id !== id))
     }
 
-    function cartClean (){
+    function cartClean() {
         return setCart([])
     }
 
@@ -43,7 +43,7 @@ export default function ContextProvider({ children }) {
         }
     }
 
-    function totalPriceItem (){
+    function totalPriceItem() {
         let total = 0
         cart.forEach((item) => (total += item.count * item.price));
         return total;

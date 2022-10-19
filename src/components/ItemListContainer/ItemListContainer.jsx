@@ -18,10 +18,10 @@ function ItemListContainer() {
     if (cat === undefined) {
       getBeer().then(response => setData(response))
         .finally(() => setLoading(false));
-    }  else {
+    } else {
       BeerCategory(cat).then(response => setData(response))
         .finally(() => setLoading(false));
-    } 
+    }
   }, [cat])
 
   return (

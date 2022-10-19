@@ -5,6 +5,7 @@ import { orderBuy } from "../../services/firestore";
 import { Button } from '@mui/material';
 import { Link, useNavigate } from 'react-router-dom';
 import Swal from 'sweetalert2';
+import FormInput from './FormInput';
 
 function FormBuy() {
 
@@ -52,59 +53,38 @@ function FormBuy() {
   return (
     <Container fluid>
       <Form onSubmit={CheckoutForm}>
-      <Row className="justify-content-md-center m-3">
+        <Row className="justify-content-md-center m-3">
           <Col md={3}>
             <h2>Formulario de compra</h2>
           </Col>
         </Row>
-        <Form.Group className="m-3" controlId="formGroupName">
-          <Row className="justify-content-md-center">
-            <Form.Label column md={2}>
-              Nombre y apellido
-            </Form.Label>
-            <Col md={4}>
-              <Form.Control
-                type="text"
-                name="name"
-                value={dataForm.name}
-                onChange={InputForm}
-                required
-              />
-            </Col>
-          </Row>
-        </Form.Group>
-        <Form.Group className="m-3" controlId="formGroupEmail">
-          <Row className="justify-content-md-center">
-            <Form.Label column md={2}>
-              Email
-            </Form.Label>
-            <Col md={4}>
-              <Form.Control
-                type="email"
-                name="email"
-                value={dataForm.email}
-                onChange={InputForm}
-                required
-              />
-            </Col>
-          </Row>
-        </Form.Group>
-        <Form.Group className="m-3" controlId="formGroupName">
-          <Row className="justify-content-md-center">
-            <Form.Label column md={2}>
-              Telefono
-            </Form.Label>
-            <Col md={4}>
-              <Form.Control
-                type="text"
-                name="phone"
-                value={dataForm.phone}
-                onChange={InputForm}
-                required
-              />
-            </Col>
-          </Row>
-        </Form.Group>
+        <FormInput
+          controlId="formGroupName"
+          type="text"
+          name="name"
+          value={dataForm.name}
+          onChange={InputForm}
+        >
+          Nombre y apellido
+        </FormInput>
+        <FormInput
+          controlId="formGroupEmail"
+          type="email"
+          name="email"
+          value={dataForm.email}
+          onChange={InputForm}
+        >
+          Email
+        </FormInput>
+        <FormInput
+          controlId="formGroupTelefono"
+          type="text"
+          name="phone"
+          value={dataForm.phone}
+          onChange={InputForm}
+        >
+          Telefono
+        </FormInput>
         <Row className="justify-content-md-center">
           <Col md={2}>
             <Button type="submit" className="button-count">Finalizar mi compra</Button>

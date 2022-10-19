@@ -1,11 +1,11 @@
 import React from 'react'
-import './NavBar.css'
 import Container from 'react-bootstrap/Container';
 import Nav from 'react-bootstrap/Nav';
 import Navbar from 'react-bootstrap/Navbar';
 import Offcanvas from 'react-bootstrap/Offcanvas';
 import CartWidget from './CartWidget';
-import {Link} from 'react-router-dom';
+import { Link } from 'react-router-dom';
+import './NavBar.css'
 
 
 function NavBar() {
@@ -49,7 +49,7 @@ function NavBar() {
                         </Offcanvas.Body>
                     </Navbar.Offcanvas>
                     <Nav>
-                        <Link to="/cartView"><CartWidget content={0}/></Link>
+                        <Link to="/cartView"><CartWidget content={0} /></Link>
                     </Nav>
                 </Container>
             </Navbar>

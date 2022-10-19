@@ -3,9 +3,9 @@ import { Box, Button, Card, CardContent, CardMedia, IconButton, Typography } fro
 import React, { useContext } from 'react';
 import { cartContext } from '../../context/CartContext';
 import { Link } from 'react-router-dom';
-import "./CartView.css"
 import { Col, Container, Row } from 'react-bootstrap';
 import Swal from 'sweetalert2';
+import "./CartView.css"
 
 
 function CartView() {

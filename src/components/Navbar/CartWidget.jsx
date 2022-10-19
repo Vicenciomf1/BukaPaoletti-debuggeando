@@ -3,8 +3,8 @@ import Badge from '@mui/material/Badge';
 import { styled } from '@mui/material/styles';
 import IconButton from '@mui/material/IconButton';
 import ShoppingCartIcon from '@mui/icons-material/ShoppingCart';
-import "./CartWidget.css"
 import { cartContext } from '../../context/CartContext';
+import "./CartWidget.css"
 
 const StyledBadge = styled(Badge)(({ theme }) => ({
   '& .MuiBadge-badge': {
@@ -23,11 +23,11 @@ function CartWidget() {
   const { getItemCount } = useContext(cartContext);
 
   return (
-      <IconButton aria-label="cart" >
-        <StyledBadge badgeContent={getItemCount()}>
-          <ShoppingCartIcon fontSize="large" className="cart" />
-        </StyledBadge>
-      </IconButton>
+    <IconButton aria-label="cart" >
+      <StyledBadge badgeContent={getItemCount()}>
+        <ShoppingCartIcon fontSize="large" className="cart" />
+      </StyledBadge>
+    </IconButton>
   );
 }
 
